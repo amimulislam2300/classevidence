@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>evidence</title>
+  </head>
+  <body>
+    <form action="#" name="f">
+      Name: <br />
+      <input type="text" name="name" /><br />
+      Email: <br />
+      <input type="text" name="email" /><br />
+      Course: <br />
+      <select name="course" id="">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JS">JS</option>
+      </select>
+      <br />
+      <p>
+        Sex: <br />
+        <input type="radio" name="t" value="Male" />Male
+        <input type="radio" name="t" value="Female" />Female 
+      </p>
+      <br/>
+      <input type="submit" value="submit" onclick="my()" />
+      <input type="reset" value="reset" />
+      
+    </form>
+
+    <script>
+      function my() {
+        doc = open("", "", "width=400px, height=400px");
+
+        var name = document.f.name.value;
+        var email = document.f.email.value;
+        var course = document.f.course.value;
+        var sex ="";
+
+        for (n = 0;n<document.f.t.length;n++) {
+          if(document.f.t[n].checked){
+          sex =document.f.t[n].value;
+        }
+    }
+
+        with (doc.document) {
+          write("Name: " + name);
+          write("<br>");
+          write("Email: " + email);
+          write("<br>");
+          write("Course: " + course);
+          write("<br>");
+          write("sex: " +sex );
+          write("<br>");
+          write('<button onclick="self.close()">close me</button>');
+          write('<button onclick="self.print()">Print</button>');
+        }
+      }
+    </script>
+  </body>
+</html>
