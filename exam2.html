@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h1>Form Validation</h1>
+
+    <form action="#" name="f">
+        Name: <br>
+        <input type="text" name="name"><br>
+        Email: <br>
+        <input type="text" name="email"> <br>
+        Password: <br>
+        <input type="password" name="password"> <br>
+        Address: <br>
+        <textarea name="address" ></textarea><br>
+        Gender: <br>
+        <input type="radio" name="male" value="Male">Male
+        <input type="radio" name="male" value="Female">Female <br>
+        Course: <br>
+        <select name="sub">
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JS">JS</option> 
+        </select> <br>
+        Educational Qualification: <br>
+        <input type="checkbox" name="eq" value="SSC">SSC
+        <input type="checkbox" name="eq" value="HSC">HSC
+        <input type="checkbox" name="eq" value="DIPLOMA">DIPLOMA <br>
+        <input type="submit" value="Submit" onclick="my_f()">
+        <input type="reset" value="Reset">
+    </form>
+
+    <script>
+        function my_f(){
+           
+            var name = document.f.name.value;
+            var email = document.f.email.value;
+            var password = document.f.password.value;
+            var address = document.f.address.value;
+            var sex = "";
+            var course =document.f.sub.value;
+           
+
+            for(i=0; i<document.f.male.length; i++){
+                if(document.f.male[i].checked){
+                    sex = document.f.male[i].value;
+                }
+            }
+
+            // for(i=0; i<document.f.sub.length; i++){
+            //     if(document.f.sub[i].checked){
+            //         course = document.f.sub[i].value;
+            //     }
+            // }
+
+            let education= "";
+            for(i=0; i<document.f.eq.length; i++){
+                if(document.f.eq[i].checked){
+                    education +=document.f.eq[i].value + " ";
+                }
+            }
+
+            a = open('','','width=400px, height=400px');
+            with(a.document){
+                write("Name: " + name + "<br>");
+                write("Email: " + email + "<br>");
+                write("Password: " + password + "<br>");
+                write("Address: " + address + "<br>");
+                write("Gender: " + sex + "<br>");
+                write("Course: " + course + "<br>");
+                write("Educational: " + education + "<br>");
+            }
+
+        }
+    </script>
+</body>
+</html>
