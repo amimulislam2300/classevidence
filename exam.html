@@ -31,19 +31,21 @@
 
     <script>
       function my() {
-        doc = open("", "", "width=400px, height=400px");
+        
 
         var name = document.f.name.value;
         var email = document.f.email.value;
         var course = document.f.course.value;
+        
         var sex ="";
 
         for (n = 0;n<document.f.t.length;n++) {
           if(document.f.t[n].checked){
           sex =document.f.t[n].value;
         }
-    }
-
+        }
+        
+        doc = open("", "", "width=400px, height=400px");
         with (doc.document) {
           write("Name: " + name);
           write("<br>");

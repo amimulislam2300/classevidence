@@ -32,6 +32,7 @@
         <input type="checkbox" name="eq" value="DIPLOMA">DIPLOMA <br>
         <input type="submit" value="Submit" onclick="my_f()">
         <input type="reset" value="Reset">
+        
     </form>
 
     <script>
@@ -41,10 +42,10 @@
             var email = document.f.email.value;
             var password = document.f.password.value;
             var address = document.f.address.value;
-            var sex = "";
+            
             var course =document.f.sub.value;
            
-
+            var sex = "";
             for(i=0; i<document.f.male.length; i++){
                 if(document.f.male[i].checked){
                     sex = document.f.male[i].value;
@@ -73,6 +74,8 @@
                 write("Gender: " + sex + "<br>");
                 write("Course: " + course + "<br>");
                 write("Educational: " + education + "<br>");
+                write('<button onclick="self.close()">Close</button>');
+                write('<button onclick="self.print()">Print</button>');
             }
 
         }

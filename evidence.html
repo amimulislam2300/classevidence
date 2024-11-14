@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            width: 300px;
+            padding: 50px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20%;
+            left: 40%;
+        }
+        body{
+            background: linear-gradient(to right,rgb(14, 136, 14),rgb(9, 146, 151));
+        }
+        #btn{
+            width: 300px;
+            background: linear-gradient(to right,rgb(116, 6, 6),rgb(44, 3, 3));
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <form action="" name="f">
+        <table>
+            <tr>
+                Name:
+                <input type="text" name="name" onblur="namevalid()">
+            </tr><br><br>
+            <tr>
+                Email:
+                <input type="text" name="email" onblur="emailvalid()">
+            </tr><br><br>
+            <tr>
+                Education:
+                <input type="checkbox" name="edu" value="SSC">SSC <input type="checkbox" name="edu" value="HSC">HSC
+                <!-- <input type="radio" name="edu" value="SSC">SSC <input type="radio" name="edu" value="HSC">HSC -->
+            </tr><br><br>
+            <tr>
+                <input type="submit" onclick="my_f()" id="btn">
+            </tr>
+        </table>
+    </form>
+    
+    <script>
+        function my_f(){
+        var name = document.f.name.value;
+        var email = document.f.email.value;
+        var edu = document.f.edu.value;
+
+
+    // for(i=0;i<document.f.edu.length;i++){
+    //     if(document.f.edu[i].checked){
+    //         edu.push(document.f.edu[i].value);
+    //     }
+    // }
+    doc = open('','','width=500px,height=800px');
+    // with(doc.document){
+    //     write('<body style="background: linear-gradient(to right,rgb(14, 136, 14),rgb(9, 146, 151));"></body>')
+    //     write(<div style=" background-color: rgba(0, 0, 0, 0.5); color: #fff; width: 300px;  padding: 50px; border-radius: 10px; position: fixed; top: 20%; left: 10%;">Name: ${name} <br> Email: ${email} <br> Education: ${edu} <br> <button onclick="self.close()" style="background: linear-gradient(to right,rgb(116, 6, 6),rgb(44, 3, 3)); color: #fff; width: 300px;">Close Tab</button></div>);
+    // }
+}
+function namevalid(){
+    var name = document.f.name.value;
+    var testN = /^[0-9A-Za-z]{4,9}$/
+    if(!testN.test(name)){
+        alert("Evalied name.");
+        return false
+    }else{}
+    return true
+}
+function emailvalid(){
+    var email = document.f.email.value;
+    var testE = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/
+    if(!testE.test(email)){
+        alert("Evalied email.");
+        return false
+    }else{}
+    return true
+}
+    </script>
+</html>

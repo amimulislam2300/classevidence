@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title> 
+    <style>
+        div{
+            width: 200px;
+
+        }
+        form{
+            padding: 2%;
+            position: fixed;
+            top: 20%;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">form validation</h1>
+    <div>
+        <form action="#" name="f" style="text-align: center; background-color: bisque;">
+            Name: <br>
+            <input type="" name="name" onblur="my_name()" id="name"> <br>
+            Email: <br>
+            <input type="text" name="email" onblur="my_e()" id="email"> <br>
+            Password: <br>
+            <input type="password" name="password" onblur="my_p()" id="password"> <br>
+            Gender: <br>
+            <input type="radio" name="male" value="Male">Male
+            <input type="radio" name="male" value="Female">Female <br>
+    
+            <input type="submit" value="Submit" onclick="mi_f()">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+    
+
+    <script>
+
+        function my_e(){
+            var eml = document.getElementById("email");
+            var eml2 = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+            if(!eml2.test(email.value)){
+                alert("Please enter valid email");
+                return false;
+            }else{
+                return true;    
+            }
+        }
+
+        function my_name(){
+            var pass = document.getElementById("name");
+            var pass2 = /^[0-9A-Za-z]{4,9}$/;
+            if(!pass2.test(pass.value)){
+                alert("Please valid name");
+                return false;
+            }else{
+                return true;
+            }
+        } 
+
+        function my_p(){
+        var pas = document.f.password.value;
+        var testP = /^[0-9A-Za-z]{4,15}$/
+
+        if(!testP.test(pas)){
+        alert('Envalied password.')
+        return false;
+        }else{}
+        return true;
+        }
+
+
+        function mi_f(){
+            var name = document.f.name.value;
+            var email = document.f.email.value;
+            var password = document.f.password.value;
+            
+            var sex = "";
+            for(i=0; i<document.f.male.length; i++){
+                if(document.f.male[i].checked){
+                    sex =document.f.male[i].value;
+                }
+            }
+
+            a = open('','','width=400px, height=400px');
+            with(a.document){
+                write("Name: "+ name + "<br>");
+                write("Email: "+ email + "<br>");
+                write("Password: "+ password + "<br>");
+                write("Gender: "+ sex + "<br>");
+        
+                write('<button onclick="self.close()">Close</button>');
+                write('<button onclick="self.print()">Print</button>');
+            }
+        }
+    </script>
+</body>
+</html>
